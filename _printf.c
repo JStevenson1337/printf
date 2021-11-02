@@ -1,4 +1,4 @@
-#include "main.h"
+//#include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
 /**
@@ -7,23 +7,25 @@
  */
 int _printf(const char *format, ...)
 {
-	char *_mv;
+	char *p_fmt;
 	char *s;
 	unsigned int i;
 
-	va_list arg;
-	va_start(arg, format);
+	va_list v_list;
+	va_start(v_list, format);
 
-	*_mv = format;
+	if (format == NULL)
+		return (-1);
 
-
-
-	for (i = 0; *_mv[i] != '\0'; i++)
+	p_fmt = (char *)format;
+	while (*p_fmt != '\0')
 	{
+		if (*p_fmt != '%')
 		{
-			if (*mv[i] == '%')
-				i++;
-				return (mv[i]);
+			putbuff(*p_fmt);
+			p_fmt++;
 		}
-	}
-}
+		else
+		{
+			p_fmt++;
+			}
