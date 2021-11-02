@@ -1,6 +1,5 @@
 #include "cands.c"
-
-
+#include <stdlib.h>
 /**
  * _memset - function start
  * @s: pointer to memory location
@@ -15,9 +14,7 @@ char *_memset(char *s, char b, unsigned int n)
 
 	for (i = 0; i < n; i++)
 		s[i] = b;
-
 	return (s);
-
 }
 /**
  * _memcpy - function start
@@ -27,27 +24,24 @@ char *_memset(char *s, char b, unsigned int n)
  * Return: Dest pointer
  * Description: copies memory between pointers
  */
-
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
-
-	char *csrc = (char *)src;
-	char *cdest = (char *)dest;
+	char *new_src = (char *)src;
+	char *new_dest = (char *)dest;
 
 	for (i = 0; i < n; i++)
-		cdest[i] = csrc[i];
-
+		new_dest[i] = new_src[i];
 	return (dest);
 }
-
 int putbuff(char *s)
 {
 	static char *buff = NULL;
 	static int buffsize = 0;
 
 	int len = _strlen(s);
-	if (len > buffsize) {
+	if (len > buffsize)
+	{
 		buffsize = len + 1;
 		buff = (char *) realloc(buff, buffsize);
 	}
