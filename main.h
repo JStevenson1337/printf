@@ -7,15 +7,15 @@
 
 /**
  * struct print - structure for printing various types
- * @spec: to print
+ * @format: to print
  * @f: print function
  */
 
 typedef struct print
 {
-char *spec;
-int (*f)(va_list);
-} specifier;
+char *chartype;
+int (*ptr)(va_list);
+} chartype;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
