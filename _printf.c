@@ -4,11 +4,6 @@
 
 int _printf(const char *format, ...)
 {
-	int* argp = (int*)&format;
-	argp =+ sizeof(format) / sizeof(int);
-	argp++;
-	argp++;
-	argp++;
-
-
+	unsigned int i;
+	
 }
