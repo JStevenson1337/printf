@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "fbuffers.c"
+#include "domaths.c"
 int _printf(const char *format, ...);
 
 int _putchar(char c);
