@@ -19,4 +19,8 @@ int (*ptr)(va_list);
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int _strelen(char *s);
+char *_strcpy(char *dest, char *src);
+char* _iota(int num, char *str);
+
 #endif

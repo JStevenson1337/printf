@@ -13,22 +13,24 @@ int _printf(const char *format, ...)
 {
 	unsigned int i = 0;
 	int printedchars = 0;
-	va_list ap;
+	va_list v_list;
+	char *p_fmt, *s;
 
-	va_start(ap, format);
+	va_start(v_list, format);
+	p_fmt = format;
 
-	while (format[i] != '\0')
+	while (p_fmt[i] != '\0')
 	{
-		if (format[i] == %)
+		if (p_fmt[i] == '%')
 		{
-			*format[i] + 1
-			switch (format[i])
+			p_fmt[i]++;
+			switch (p_fmt[i])
 			{
 			case 'c':
 			_putchar(va_arg(v_list, int));
 				break;
 			case 's':
-				_strcpy(s, va_arg(v_list, char *));
+				*_strcpy(s, va_arg(v_list, char *));
 				break;
 			case 'd':
 				_iota(va_arg(v_list, int), s);
@@ -48,7 +50,7 @@ int _printf(const char *format, ...)
 	printedchars++;
 i++;
 
-va_end(ap);
+va_end(v_list);
 return (printedchars);
 }
 
