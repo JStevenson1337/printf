@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include "main.h"
 
 /**
@@ -7,8 +8,8 @@
  * Return: number of chars and digits printed
  */
 
-int print_char(va_list c)
+int *print_char(char *c)
 {
-	_putchar((char) va_arg(c, int));
-	return (1);
+	
 }
+

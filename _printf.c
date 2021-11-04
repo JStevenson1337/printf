@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 	unsigned int i = 0;
 	int printedchars = 0;
 	va_list ap;
+	int length = 0;
+
 
 	va_start(ap, format);
 
@@ -23,16 +25,13 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			i++;
 		} while (format[i] == '%');
-			switch (format[i])
-			{
-				case 'c':
-				printedchars += print_char(va_arg, c);
-					break;
-			}
+
+			
 }
 	printedchars++;
 i++;
-
+length++;
 va_end(ap);
+			
 return (printedchars);
 }
