@@ -23,8 +23,11 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			i++;
 		} while (format[i] == '%');
-
-	}
+			switch (format[i])
+			{
+				
+			}
+}
 	printedchars++;
 i++;
 
