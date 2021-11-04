@@ -1,46 +1,60 @@
+#include "main.h"
+
+
 char print_char(char *c)
 {
-	for (i = 0 i != '/0' i++)
-		putchar(i);
-}
-int print_int(i = 0; ! = '/0')
-{
-	putchar(i);
-}
-char print_string(char *c)
-{
-	for (i = 0 i != '/0' i++)
-		putchar(i);
-}
-int print_rot13(int *src)
-{
-    int c,e;
-
-    while((c=getchar())!=EOF)
+    if (*c == '\0')
+        return 0;
+    else
     {
-        if(c >='A' && c <='Z')
-        {
-            if((e = c + ROT) <= 'Z')
-                putchar(e);
-            else
-            {
-                   e = c - ROT;
-                putchar(e);
-            }
-        }
-        else if(c >='a' && c <='z')
-        {
-            if((e= c + ROT) <= 'z')
-                putchar(e);
-            else
-            {
-                e = c - ROT;
-                putchar(e);
-            }
-        }
-        else
-            putchar(c);
+        putchar(*c);
+        return 1;
     }
-
-return 0;
+    return *c;
+}
+int print_int(int *i)
+{
+    if (*i == 0)
+        return 0;
+    else
+    {
+        printf("%d", *i);
+        return 1;
+    }
+    return *i;
+}
+int print_float(float *f)
+{
+    if (*f == 0)
+        return 0;
+    else
+    {
+        printf("%f", *f);
+        return 1;
+    }
+    return *f;
+}
+int print_string(char *s)
+{
+    if (*s == '\0')
+        return 0;
+    else
+    {
+        printf("%s", s);
+        return (_strelen(s) - 1);
+    }
+    return *s;
+}
+char rot13(char c)
+{
+    if (c >= 'a' && c <= 'm')
+        return c + 13;
+    else if (c >= 'A' && c <= 'M')
+        return c + 13;
+    else if (c >= 'n' && c <= 'z')
+        return c - 13;
+    else if (c >= 'N' && c <= 'Z')
+        return c - 13;
+    else
+        return c;
 }

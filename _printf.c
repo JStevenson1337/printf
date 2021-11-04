@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include "helper.c"
+
 
 /**
  * _printf - Prints out text and data using a format specifier like the
@@ -11,46 +13,39 @@
 
 int _printf(const char *format, ...)
 {
+	char modify_t;
+
 	unsigned int i = 0;
 	int printedchars = 0;
 	va_list v_list;
 	char *p_fmt, *s;
 
 	va_start(v_list, format);
-	p_fmt = format;
+	*p_fmt = *format;
 
 	while (p_fmt[i] != '\0')
 	{
 		if (p_fmt[i] == '%')
 		{
 			i++;
-			switch (p_fmt[i])
 			{
-			case 'c':
-			_putchar(va_arg(v_list, int));
-				break;
-			case 's':
-				*_strcpy(s, va_arg(v_list, char *));
-				break;
-			case 'd':
-				_iota(va_arg(v_list, int), s);
-				break;
-			case 'i':
-				_putchar(va_arg(v_list, int));
-				break;
-			case '%':
-				_putchar('%');
-				break;
-			default:
-				break;
+				{'c', print_char(i);}
+				{'s', print_string(i);}
+				{'d', print_int(i);}
+				{'i', print_int(i);}
+				// {'b', print_binary(i);}
+				// {'o', print_octal(i);}
+				// {'x', print_hex(i);}
+				// {'X', print_hex_upper(i);}
+				{'%', print_percent(i);}
+				{'\0', print_null(i);}
+				{'\0', NULL}
 			}
-		}
-
 	}
 	printedchars++;
 i++;
 
-va_end(ap);
+va_end(v_list);
 return (printedchars);
 }
 
