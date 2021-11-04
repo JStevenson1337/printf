@@ -17,6 +17,7 @@ char *chartype;
 int (*ptr)(va_list);
 } chartype;
 
+void printpercent(void);
 char *_iota(int num, char *str);
 int _printf(const char *format, ...);
 int _putchar(char c);

@@ -25,8 +25,8 @@ int _printf(const char *format, ...)
 		} while (format[i] == '%');
 			switch (format[i])
 			{
-				case 'c':
-				printedchars += print_char(va_arg, c);
+				case '%':
+					printintpercent();
 					break;
 			}
 }
