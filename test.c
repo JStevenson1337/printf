@@ -3,17 +3,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+
+char *_itoa(int value, char *newString);
 int _putchar(char c);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 int putbuff(char *s);
+char *_memset(char *s, char b, unsigned int n);
 /**
  *
  *
  */
 int _printf(const char *format, ...)
 {
-    char *p_fmt;
+    char *p_fmt, *buffer;
     char *s;
     unsigned int i;
 
@@ -24,40 +27,51 @@ int _printf(const char *format, ...)
         return (-1);
 
     p_fmt = (char *)format;
-	for (i = 0; *p_fmt != '\0'; i++)
+	_memset(buffer, 0, 0);
+	while (*p_fmt != '\0')
 	{
-		if (*p_fmt == '%')
+		if (*p_fmt != '%')
+		{
+			_putchar(*p_fmt);
+			p_fmt++;
+		}
+		else
 		{
 			p_fmt++;
 			switch (*p_fmt)
 			{
 			case 'c':
-				_putchar(va_arg(v_list, int));
+				i = va_arg(v_list, int);
+				_putchar(i);
 				break;
 			case 's':
-				_strcpy(s, va_arg(v_list, char *));
-				break;
-			case 'd':
-				_putchar(va_arg(v_list, int));
-				break;
-			case 'i':
-				_putchar(va_arg(v_list, int));
+				s = va_arg(v_list, char *);
+				_strcpy(buffer, s);
 				break;
 			case '%':
 				_putchar('%');
+				break;
+			case 'd':
+				i = va_arg(v_list, int);
+				_itoa(i, buffer);
+				break;
+			case 'i':
+				i = va_arg(v_list, int);
+				_itoa(i, buffer);
 				break;
 			default:
 				break;
 			}
 		}
-		else
-		{
-			_putchar(*p_fmt);
-		}
-		p_fmt++;
-    }
+	}
 	va_end(v_list);
+	return (0);
 }
+
+
+
+
+
 int _strlen(char *s)
 {
     if (*s == '\0')
@@ -65,6 +79,10 @@ int _strlen(char *s)
     else
         return (1 + _strlen(++s));
 }
+
+
+
+
 
 char *_strcpy(char *dest, char *src)
 {
@@ -82,28 +100,77 @@ char *_strcpy(char *dest, char *src)
 
 int putbuff(char *s)
 {
-    char *buff = NULL;
-	int buffsize = 0;
+  char* buffer;
 
-    int len = _strlen(s);
-    if (len > buffsize)
-    {
-        buffsize = len + 1;
-        buff = (char *) realloc(buff, buffsize);
+    buffer = (char* )malloc( 80 );
+    if( buffer == NULL )
+	{
+	    free( buffer );
     }
-    _strcpy(buff, s);
-	printf("%s", buff);
-    return *buff;
+	return (*buffer);
 }
 
 int _putchar(char c)
 {
     return (write(1, &c, 1));
 }
-
-
-int main()
+/**
+ * _memset - function start
+ * @s: pointer to memory location
+ * @b: constant bytes
+ * @n: number of bytes
+ * Description: function that fills memory with a constant byte.
+ * Return: mutated string
+ */
+char *_memset(char *s, char b, unsigned int n)
 {
-  putbuff("this is a test");
-  return 0;
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		s[i] = b;
+	return (s);
+}
+/**
+ * _memcpy - function start
+ * @dest: Pointer Destination
+ * @src: Pointer source
+ * @n: number of bytes to copy
+ * Return: Dest pointer
+ * Description: copies memory between pointers
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int i;
+	char *new_src = (char *)src;
+	char *new_dest = (char *)dest;
+
+	for (i = 0; i < n; i++)
+		new_dest[i] = new_src[i];
+	return (dest);
+}
+
+char *_itoa(int value, char *newString)
+{
+	int i = 0;
+	int n = value;
+	int r;
+
+	newString[11] =  '\0';
+	if (n < 0)
+	{
+		n = -n;
+	}
+	while (n)
+	{
+		r = n % 10;
+		newString[11 - i - 1] = r + 48;
+		n = n / 10;
+		i++;
+	}
+	if (value < 0)
+	{
+		i++;
+		newString[11 - i] = '-';
+	}
+	return (newString + 11 - i);
 }

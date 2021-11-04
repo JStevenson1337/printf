@@ -41,8 +41,6 @@ int _printf(const char *format, ...)
 				break;
 			case 'd':
 				_iota(va_arg(v_list, int), s);
-
-
 				break;
 			case 'i':
 				_putchar(va_arg(v_list, int));
@@ -97,7 +95,7 @@ int putbuff(char *s)
     }
     _strcpy(buff, s);
 	write(1, buff, len);
-    return *buff;
+    return (*buff);
 }
 
 int _putchar(char c)
