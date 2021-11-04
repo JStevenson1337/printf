@@ -1,4 +1,4 @@
-nt main (int argc, char *argv[])
+int main (int argc, char *argv[])
 {
   int ret;
   ret = print("%c %d %o %x %s\n", 'A', 10, 100, 1000, "Hello from printf!");

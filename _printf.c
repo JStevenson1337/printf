@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 	{
 		if (p_fmt[i] == '%')
 		{
-			p_fmt[i]++;
+			i++;
 			switch (p_fmt[i])
 			{
 			case 'c':
@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 	printedchars++;
 i++;
 
-va_end(v_list);
+va_end(ap);
 return (printedchars);
 }
 

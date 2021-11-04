@@ -11,11 +11,25 @@
  * @f: print function
  */
 
-typedef struct print
+typedef struct print_t
 {
-char *chartype;
-int (*ptr)(va_list);
-} chartype;
+	char p_fmt;
+	void (*f)(va_list);
+} print_t;
+
+typedef struct modify_t = []
+{
+	{'c', print_char},
+	{'s', print_string},
+	{'d', print_int},
+	{'i', print_int},
+	{'b', print_binary},
+	{'r', print_reverse},
+	{'R', print_rot13},
+	('%', print_percent),
+	{'\0', NULL}
+} modify_t;
+
 
 int _printf(const char *format, ...);
 int _putchar(char c);
