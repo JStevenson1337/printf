@@ -7,33 +7,25 @@ char print_char(char *c)
         return (0);
     else
     {
-        *char c -> _putchar(c);
+        c = (char*)c;
+          _putchar(*c);
         return (1);
     }
     return (*c);
 }
 int print_int(int *i)
 {
+    i = (int*)i;
     if (*i == 0)
         return (0);
     else
     {
-        printf("%d", *i);
         return (1);
     }
     return (*i);
 }
-int print_float(float *f)
-{
-    if (*f == 0)
-        return (0);
-    else
-    {
-        printf("%f", *f);
-        return (1);
-    }
-    return (*f);
-}
+
+
 int print_string(char *s)
 {
     if (*s == '\0')
@@ -58,5 +50,19 @@ char rot13(char c)
         return (c - 13);
     else
         return (*c);
+}
+*/
+
+/*
+{
+int print_float(float *f)
+    if (*f == 0)
+        return (0);
+    else
+    {
+        printf("%f", *f);
+        return (1);
+    }
+    return (*f);
 }
 */
