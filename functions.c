@@ -8,8 +8,15 @@
  * Return: number of chars and digits printed
  */
 
-int *print_char(char *c)
-{
-	
-}
+int _print_char(va_list *c)
+	{
+		_putchar((char)va_arg(c, int));
+		return (0);
+	}
 
+int _print_int(int value)
+	{
+		char *buffer[12];
+		int isNegative = 0;
+		int positionCounter = 0;
+	}

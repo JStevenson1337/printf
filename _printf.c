@@ -21,17 +21,27 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
-		do {
+		while (format[i] == '%')
+		{
 			_putchar(format[i]);
 			i++;
-		} while (format[i] == '%');
+		}
 
-			
+		if (format[i] == 'c')
+		{
+		char arg = va_arg(ap, int);
+
+		_print_char(&arg);
+		}
+		else if (format[i] == 'd' || format[i] =='i')
+		{
+			int arg = va_arg(ap, int);
+			printInt(&arg);
+		}
 }
 	printedchars++;
-i++;
-length++;
+
 va_end(ap);
-			
+
 return (printedchars);
 }
