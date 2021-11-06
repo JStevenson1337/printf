@@ -15,25 +15,26 @@ int _printf(const char *format, ...)
 	int printedchars = 0;
 	va_list ap;
 	int length = 0;
-
+	char *p_fmt, s;
 
 	va_start(ap, format);
+	*p_fmt = *format;
 
-	while (format[i] != '\0')
+	while (p_fmt[i] != '\0')
 	{
-		while (format[i] == '%')
+		while (p_fmt[i] == '%')
 		{
-			_putchar(format[i]);
+			_putchar(p_fmt[i]);
 			i++;
 		}
 
-		if (format[i] == 'c')
+		if (p_fmt[i] == 'c')
 		{
-		char arg = va_arg(ap, int);
+		char arg = va_arg(ap, char);
 
 		_print_char(&arg);
 		}
-		else if (format[i] == 'd' || format[i] =='i')
+		else if (p_fmt[i] == 'd' || p_fmt[i] =='i')
 		{
 			int arg = va_arg(ap, int);
 			printInt(&arg);
