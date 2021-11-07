@@ -1,16 +1,19 @@
 #include "main.h"
 #include <stdarg.h>
+<<<<<<< HEAD
 
+=======
+#include <stdlib.h>
+>>>>>>> M2
 
 /**
- * _printf - Prints out text and data using a format specifier like the
- * standard printf()
- * @format: The string part that includes the format
- * Return: number of characters written
+ * _printf - prints strings ints chars
+ * @format: format
+ * Return: int
  */
-
 int _printf(const char *format, ...)
 {
+<<<<<<< HEAD
 	char modify_t;
 
 	unsigned int i = 0;
@@ -20,9 +23,15 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
+=======
+	va_list args;
+	unsigned int i = 0, printedchar = 0;
+>>>>>>> M2
 
+	va_start(args, format);
 	while (format[i] != '\0')
 	{
+<<<<<<< HEAD
 		if (format[i] == '%')
 		{
 
@@ -50,3 +59,35 @@ i++;
 va_end(args);
 return (printedchars);
 }
+=======
+		if (!format)
+		return (-1);
+		else if (format[i] == '%')
+		{
+			i++;
+			switch (format[i])
+			{
+				case 'i':
+					printedchar += print_int(va_arg(args, int));
+					break;
+				case 'd':
+					printedchar += print_int(va_arg(args, int));
+					break;
+				case 'c':
+					printedchar += print_char(va_arg(args, int));
+					break;
+				case 's':
+					printedchar += print_string(va_arg(args, char *));
+					break;
+				case '%':
+					printedchar += percent();
+					break;
+			}}
+		else
+		{
+			_putchar(format[i]), printedchar++;
+		}
+		i++; }
+	va_end(args);
+	return (printedchar); }
+>>>>>>> M2
