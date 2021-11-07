@@ -23,10 +23,3 @@ char *_itoa(int num, char *str)
 
 
 }
-
-
-// print_int(va_arg(args, int));
-// print_int(va_arg(args, int));
-// print_char(va_arg(args, int));
-// print_string(va_arg(args, char *));
-// percent(va_arg(args, int));
