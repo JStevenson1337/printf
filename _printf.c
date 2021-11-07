@@ -1,45 +1,46 @@
 #include "main.h"
-#include <stdarg.h>
-/**
- * _printf - prints strings ints chars
- * @format: format
- * Return: int
- */
+
+
 int _printf(const char *format, ...)
 {
-	va_list args;
-	unsigned int i = 0, printedchar = 0;
+	unsigned int i;
+	int id = 0, len = 0;
+	va_list arg;
 
-va_start(args, format);
-	while (format[i] != '\0')
-	{
-	if (!format)
+	va_start(arg, format);
+	if (format == NULL)
 		return (-1);
-		else if (format[i] == '%')
+
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] != '%')
 		{
-			i++;
-			switch (format[i])
-			{
-				case 'i':
-					printedchar += print_int(va_arg(args, int));
-					break;
-				case 'd':
-					printedchar += print_int(va_arg(args, int));
-					break;
-				case 'c':
-					printedchar += print_char(va_arg(args, int));
-					break;
-				case 's':
-					printedchar += print_string(va_arg(args, char *));
-					break;
-				case '%':
-					printedchar += percent();
-					break;
-			}}
-		else
-		{
-			_putchar(format[i]), printedchar++;
+			_putchar(format[i]);
+			len++;
+			continue;
 		}
-		i++; }
-	va_end(args);
-	return (printedchar); }
+		if (format[i + 1] == '%')
+		{
+			_putchar('%');
+			len++;
+			i++;
+			continue;
+		}
+		if (format[i + 1] == '\0')
+			return (-1);
+
+		id = get_func(format[i + 1], arg);
+		if (id == -1 || id != 0)
+			i++;
+		if (id > 0)
+			len += id;
+
+		if (id == 0)
+		{
+			_putchar('%');
+			len++;
+		}
+	}
+	va_end(arg);
+	return (len);
+}

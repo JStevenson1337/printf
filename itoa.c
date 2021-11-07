@@ -1,4 +1,4 @@
-char *_iota(int num, char *str)
+char *_itoa(int num, char *str)
 {
 	int i = 0;
 	char isNeg;
@@ -23,3 +23,10 @@ char *_iota(int num, char *str)
 
 
 }
+
+
+// print_int(va_arg(args, int));
+// print_int(va_arg(args, int));
+// print_char(va_arg(args, int));
+// print_string(va_arg(args, char *));
+// percent(va_arg(args, int));
