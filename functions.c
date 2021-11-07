@@ -55,7 +55,7 @@ int print_string(va_list spec)
 
 /**
  * print_int - prints integer
- * @n: int
+ * @arg: int
  * Return: int
  */
 int print_int(va_list arg)
@@ -80,27 +80,5 @@ for (; divisor >= 1; n %= divisor, divisor /= 10, charPrinted++)
 	_putchar('0' + rev);
 }
 return (charPrinted);
-}
-
-/**
- * print_unsigned - prints an unsigned int.
- * @arg: argument
- * Return: 0
- */
-
-int print_unsigned(va_list arg)
-{
-int divisor = 1, i, resp;
-unsigned int n = va_arg(arg, unsigned int);
-
-for (i = 0; n / divisor > 9; i++, divisor *= 10)
-;
-
-for (; divisor >= 1; n %= divisor, divisor /= 10)
-{
-	resp = n / divisor;
-	_putchar('0' + resp);
-}
-return (i + 1);
 }
 

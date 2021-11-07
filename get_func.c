@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * get_func - gets the function
- * @format: format
+ * @arg: format
+ * @next: next
  * Return: function
  */
 int get_func(char next, va_list arg)
@@ -15,12 +16,12 @@ int get_func(char next, va_list arg)
 		{"i", print_int},
 		{"u", print_unsigned},
 		{"b", print_binary},
-		/*
-		// {"o", print_oct},
-		// {"x", print_hex},
-		// {"X", print_HEX},
-		// {"S", print_STR},
-		*/
+		/**
+		 * {"o", print_oct},
+		 * {"x", print_hex},
+		 * {"X", print_HEX},
+		 * {"S", print_STR},
+		 */
 		{NULL, NULL}
 	};
 
