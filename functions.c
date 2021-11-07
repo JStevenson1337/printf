@@ -20,8 +20,10 @@ int _putchar(char c)
 int print_char(char c)
 {
 	if (!c)
+	{
 		return (0);
 		write(1, &c, 1);
+	}
 	return (1);
 }
 

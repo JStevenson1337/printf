@@ -15,8 +15,10 @@ char *_iota(int num, char *str)
 		i++;
 	}
 	if (isNeg)
+	{
 		str[i] = '-';
 		str[i + 1] = '\0';
+	}
 	return (str);
 
 
