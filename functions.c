@@ -40,7 +40,7 @@ int print_string(char *spec)
 	{
 		write(1, &spec[i], 1);
 	}
-	write(1, '\0', 1);
+	write(1, "\n", 1);
 
 	return (i);
 }
