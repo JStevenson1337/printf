@@ -1,19 +1,16 @@
 #include "main.h"
 
 /**
- * print_invalid
+ * print_invalid - error checker
  * Prints an error message to the user.
- *
- *
- * @return int
+ * Return: int
  */
-int print_invalid()
+int print_invalid(void)
 {
 	_putchar('%');
 	_putchar('%');
 	return (2);
 }
-
 
 /**
  * _putchar - print a char
@@ -57,16 +54,6 @@ int print_string(va_list spec)
 }
 
 /**
- * percent - print %
- * Return: int
- */
-int percent(void)
-{
-	_putchar('%');
-	return (1);
-}
-
-/**
  * print_int - prints integer
  * @n: int
  * Return: int
@@ -93,34 +80,6 @@ for (; divisor >= 1; n %= divisor, divisor /= 10, charPrinted++)
 	_putchar('0' + rev);
 }
 return (charPrinted);
-}
-
-int print_binary(va_list b)
-{
-	unsigned int n = va_arg(b, unsigned int);
-	int i, j;
-	int count = 0;
-
-	for (i = 0; i < 32; i++)
-	{
-		j = n >> i;
-		if (j & 1)
-		{
-			_putchar('1');
-			count++;
-		}
-		else
-		{
-			_putchar('0');
-			count++;
-		}
-		if (i % 8 == 7)
-		{
-			_putchar(' ');
-			count++;
-		}
-	}
-	return (count);
 }
 
 /**

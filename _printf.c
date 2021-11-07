@@ -1,6 +1,9 @@
 #include "main.h"
-
-
+/**
+ * _printf - print string, int ect
+ * @format: specifier
+ * Return: int
+ */
 int _printf(const char *format, ...)
 {
 	unsigned int i;
@@ -10,21 +13,17 @@ int _printf(const char *format, ...)
 	va_start(arg, format);
 	if (format == NULL)
 		return (-1);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
-			_putchar(format[i]);
-			len++;
+			_putchar(format[i]), len++;
 			continue;
 		}
 		if (format[i + 1] == '%')
 		{
-			_putchar('%');
-			len++;
-			i++;
-			continue;
+			_putchar('%'), len++, i++;
+		continue;
 		}
 		if (format[i + 1] == '\0')
 			return (-1);
@@ -34,13 +33,8 @@ int _printf(const char *format, ...)
 			i++;
 		if (id > 0)
 			len += id;
-
 		if (id == 0)
-		{
-			_putchar('%');
-			len++;
-		}
-	}
+		{_putchar('%'), len++; }	}
 	va_end(arg);
 	return (len);
 }
