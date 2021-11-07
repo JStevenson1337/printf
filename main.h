@@ -13,5 +13,4 @@ int percent(void);
 int print_string(char *sp);
 int print_char(char c);
 int print_int(int n);
-
 #endif

@@ -1,7 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stdlib.h>
-
 /**
  * _printf - prints strings ints chars
  * @format: format
@@ -12,10 +10,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	unsigned int i = 0, printedchar = 0;
 
-	va_start(args, format);
+va_start(args, format);
 	while (format[i] != '\0')
 	{
-		if (!format)
+	if (!format)
 		return (-1);
 		else if (format[i] == '%')
 		{
