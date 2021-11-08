@@ -1,0 +1,38 @@
+.Dd 11/03/2021
+.Dt _PRINTF(1)
+.Os Darwin
+.Sh NAME
+.Nm _printf,
+.Nm _printf(),
+.Nd Print All The Things
+.Sh SYNOPSIS
+.Nm
+.Ar FORMAT
+[ARGUMENT]
+.Sh DESCRIPTION
+A function to print using a defined list of format options
+.Sh
+.Ar FORMAT ...[OPTIONS]
+.Pp
+.Bl -tag -width -indent
+.It %c
+Character
+.It %s
+String
+.It %i
+Integer
+.It %b
+Binary
+.It %%
+Percent (literal %)
+.El
+.Pp
+.Pp
+.Sh SEE ALSO
+.Xr printf 1 ,
+.Xr _putchar 1 ,
+.Xr _strlen 2 ,
+.Xr itoa 3 ,
+.Xr _strcpy 3
+.Sh BUGS
+Probably
