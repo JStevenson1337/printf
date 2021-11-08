@@ -1,0 +1,28 @@
+_PRINTF
+
+NAME
+	_printf - format and print data
+SYNOPSIS
+	_printf *FORMAT [ARGUMENT]...
+
+DESCRIPTION
+	Prints ARGUMENT(s) according to FORMAT
+
+	*FORMAT controls the output. Interpreted sequences are:
+
+	%c     character
+
+	%s     string
+
+	%d     integer
+
+	%i     unsigned int
+
+	%b     integer in binary
+
+	%%     prints '%'
+
+AUTHOR
+	Writen by Monty Williams and Jeremy stevenson
+GIT REPO
+    https://github.com/JStevenson1337/printf.git
